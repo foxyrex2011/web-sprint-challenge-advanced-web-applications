@@ -1,12 +1,15 @@
 // ✨ implement axiosWithAuth
-import axios from 'axios'
+import axios from 'axios';
 
-export const axiosWithAuth = () => {
-    const token = localStorage.getItem("token")
+const axiosWithAuth = () => {
+    const token = localStorage.getItem("token");
 
-    return ( axios.create({
+    return axios.create({
         headers: {
             authorization: token
-        }
-    }))
+        },
+        baseURL: "http://localhost:9000/api"
+    })
 }
+
+export default axiosWithAuth

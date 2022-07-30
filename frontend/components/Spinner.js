@@ -14,7 +14,6 @@ const opacity = keyframes`
 
 const StyledSpinner = styled.div`
   animation: ${opacity} 1s infinite linear;
-
   h3 {
     transform-origin: center center;
     animation: ${rotation} 1s infinite linear;

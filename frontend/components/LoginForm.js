@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
 import PT from 'prop-types'
+import axios from 'axios';
+import {useHistory} from 'react-router-dom'
 
 const initialFormValues = {
   username: '',
   password: '',
 }
+
 export default function LoginForm(props) {
   const [values, setValues] = useState(initialFormValues)
+  const {login, message} = props
   // ✨ where are my props? Destructure them here
-
+  console.log('password', values.password)
+  console.log('username', values.username)
   const onChange = evt => {
     const { id, value } = evt.target
     setValues({ ...values, [id]: value })
@@ -16,10 +21,14 @@ export default function LoginForm(props) {
 
   const onSubmit = evt => {
     evt.preventDefault()
-    // ✨ implement
+    login(values.username, values.password)
   }
 
   const isDisabled = () => {
+   if(values.username.trim().length < 3 || values.password.trim().length < 8){
+    return true
+   }
+   else{return false}
     // ✨ implement
     // Trimmed username must be >= 3, and
     // trimmed password must be >= 8 for
