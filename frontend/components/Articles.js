@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
-import { Navigate } from 'react-router-dom'
 import PT from 'prop-types'
 
 export default function Articles(props) {
-  const {getArticles, articles, setCurrentArticleId, currentArticleId, deleteArticle} = props
+  const {getArticles, articles, setCurrentArticleId, deleteArticle} = props
   // ✨ where are my props? Destructure them here
 
   // ✨ implement conditional logic: if no token exists
@@ -58,5 +57,5 @@ Articles.propTypes = {
   getArticles: PT.func.isRequired,
   deleteArticle: PT.func.isRequired,
   setCurrentArticleId: PT.func.isRequired,
-  currentArticleId: PT.number, // can be undefined or null
+  currentArticleId: PT.number,
 }
